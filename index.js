@@ -1,11 +1,24 @@
-const express = require('express');
-const app = express();
-const PORT = 3000;
+// const express = require('express');
+// const bodyParser = require('body-parser');
+// const app = express();
+// const port = 3000;
+// const db = require('./queries');
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+// app.use(bodyParser.json());
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: true,
+//   })
+// );
 
-app.listen(PORT, () => {
-    console.log(`Listening to port: ${PORT}`);
-});
+// app.get('/', (request, response) => {
+//     response.send('Hello World!');
+// });
+
+// app.get('/users', db.getUsers);
+// app.get('/users/:userId', db.getUserById);
+
+
+// app.listen(port, () => {
+//     console.log(`Listening to port: ${port}`);
+// });
