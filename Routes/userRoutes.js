@@ -1,7 +1,8 @@
 const express = require('express');
-const userController = require('../Controllers/userController');
-const { signup, login } = userController;
-const userAuth = require('../Middleware/userAuth');
+const userController = require('../Controllers/registrationController');
+const { signup, login } = require('../Controllers/registrationController');
+const { getUserInfo, editUserInfo } = require('../Controllers/userController');
+const userAuth = require('../Middleware/userMiddleware/userAuth');
 
 const router = express.Router();
 
@@ -12,9 +13,10 @@ router.post('/signup', userAuth.saveUser, signup);
 // login route
 router.post('/login', login);
 
-router.get('/', (req, res, next) => {
-    res.json({ message: 'this is in the router' });
-});
+// get specific user info
+router.get('/:username', userAuth.userAuthorization, getUserInfo);
 
+// update user info
+router.put('/update', userAuth.userAuthorization, editUserInfo);
 
-module.exports = router
+module.exports = router;

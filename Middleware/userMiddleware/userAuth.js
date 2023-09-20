@@ -1,7 +1,9 @@
 
 //importing modules
 const express = require("express");
-const db = require("../Models");
+const {db} = require("../../Models");
+const dotenv = require('dotenv').config();
+const jwt = require('jsonwebtoken');
 //Assigning db.users to User variable
 const User = db.users;
 
@@ -38,7 +40,24 @@ const User = db.users;
  }
 };
 
+const userAuthorization = async (req, res, next) => {
+  const token = req.cookies.jwt;
+
+  if (token) {
+    try {
+      const data = jwt.verify(token, process.env.secretKey);
+      req.userId = data.id;
+      next();
+    } catch (error) {
+      console.log(error)
+    }
+  } else {
+    return res.status(401).send('Please sign up or login in order to continue');
+  }
+};
+
 //exporting module
  module.exports = {
- saveUser,
+  saveUser,
+  userAuthorization
 };
