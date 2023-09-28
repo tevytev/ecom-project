@@ -9,8 +9,8 @@ const User = db.users;
 
 const getUserInfo = async (req, res) => {
     
-        const userId = req.userId;
-        const { username } = req.params;
+        // const userId = req.userId;
+        const { userId } = req.params;
 
         try {
             const user = await User.findOne({

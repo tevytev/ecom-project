@@ -38,15 +38,15 @@ router.use('/', userAuth.userAuthorization);
  *       properties:
  *         quantity:
  *           type: integer
- *           description: The quantity of the particular product in the given order
+ *           description: The quantity of the particular product in the given order.
  *           example: 5
  *         orderId:
  *           type: integer
- *           description: The ID of the given order
+ *           description: The ID of the given order.
  *           example: 2
  *         productId:
  *           type: integer
- *           description: the ID of the particular product in the given order
+ *           description: the ID of the particular product in the given order.
  */
 
 // get all user order history
@@ -54,8 +54,8 @@ router.use('/', userAuth.userAuthorization);
  * @swagger
  * /api/orders/:
  *   get:
- *     summary: Retrieve all of the signed in user's orders
- *     description: Retrieve all of the signed in user's orders and their products from database
+ *     summary: Retrieve all of the user's orders
+ *     description: Retrieve all of the signed in user's orders and their products from database.
  *     responses:
  *       200:
  *         description: An array of objects representing each individual user order. Each object comes with an attached "products" key with a value of an array containing objects that represent individual products in the order. Orders with more than one product will have multiple objects within the products array.
@@ -136,12 +136,12 @@ router.get('/', getAllOrders);
  * /api/orders/{orderId}:
  *   get:
  *     summary: Retrieve user's order that matches the given ID
- *     description: Retrieve user's order that matches the given ID and it's products from database.
+ *     description: Retrieve signed in user's order that matches the given ID and it's products from database.
  *     parameters:
  *       - in: path
  *         name: orderId
  *         required: true
- *         description: Integer that matches an order's ID
+ *         description: Integer that matches an order's ID.
  *         schema:
  *           type: integer
  *     responses:

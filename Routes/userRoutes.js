@@ -16,11 +16,11 @@ const router = express.Router();
  *       properties:
  *         id:
  *           type: string
- *           description: The user ID.
+ *           description: The user's ID.
  *           example: 8e1141db-7af2-49ef-bfc9-6eeb99b8b312
  *         userName:
  *           type: string
- *           description: The user's userName.
+ *           description: The user's username.
  *           example: Cookie123
  *         email:
  *           type: string
@@ -127,17 +127,17 @@ router.post('/login', login);
 // get specific user info
 /**
  * @swagger
- * /api/users/{username}:
+ * /api/users/{userId}:
  *   get:
  *     summary: Retrieve user info that matches the given username
- *     description: Retrieve user info and credentials from database
+ *     description: Retrieve user info and credentials from database.
  *     parameters:
  *       - in: path
- *         name: username
+ *         name: userId
  *         required: true
- *         description: String that matches a saved user's userName
+ *         description: String that matches a saved user's ID.
  *         schema:
- *           type: String
+ *           type: string
  *     responses:
  *       200:
  *         description: An object of the requested user.
@@ -155,7 +155,7 @@ router.post('/login', login);
  *                   description: User's email.
  *                   example: Cookie@example.com
  */
-router.get('/:username', userAuth.userAuthorization, getUserInfo);
+router.get('/:userId', userAuth.userAuthorization, getUserInfo);
 
 // update user info
 /**
@@ -178,7 +178,7 @@ router.get('/:username', userAuth.userAuthorization, getUserInfo);
  *                 type: string
  *                 description: The user's email.
  *                 example: NewEmail@example.com
- *     description: Update user info and return updated user credentials from database
+ *     description: Update user info and return updated user credentials from database.
  *     responses:
  *       201:
  *         description: An object of the updated user credentials.

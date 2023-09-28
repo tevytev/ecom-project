@@ -38,15 +38,15 @@ router.use('/', userAuth.userAuthorization, findUserCart)
  *       properties:
  *         quantity:
  *           type: integer
- *           description: The quantity of the particular product in the given cart
+ *           description: The quantity of the particular product in the given cart.
  *           example: 5
  *         cartId:
  *           type: integer
- *           description: The ID of the given cart
+ *           description: The ID of the given cart.
  *           example: 2
  *         productId:
  *           type: integer
- *           description: the ID of the particular product in the given cart
+ *           description: the ID of the particular product in the given cart.
  */
 
 // Get user cart
@@ -55,7 +55,7 @@ router.use('/', userAuth.userAuthorization, findUserCart)
  * /api/cart/:
  *   get:
  *     summary: Retrieve user cart
- *     description: Retrieve signed in user cart and it's current products from database
+ *     description: Retrieve signed in user cart and it's current products from database.
  *     responses:
  *       200:
  *         description: An object representing the signed in user's cart. This object comes with an attached "products" key with a value of an array containing objects that represent individual products in the cart. Carts with more than one product will have multiple objects within the products array.
@@ -133,12 +133,12 @@ router.get('/', getCart);
  * /api/cart/{productId}:
  *   post:
  *     summary: Add product that matches the given ID to user cart
- *     description: Add product with matching ID to signed in user's cart and returns the updated cart from database
+ *     description: Add product with matching ID to signed in user's cart and returns the updated cart from database.
  *     parameters:
  *       - in: path
  *         name: productId
  *         required: true
- *         description: integer that matches a saved product's ID
+ *         description: integer that matches a saved product's ID.
  *         schema:
  *           type: integer
  *     responses:
@@ -218,12 +218,12 @@ router.post('/:productId', insertIntoCartProducts);
  * /api/cart/{productId}:
  *   delete:
  *     summary: Remove product that matches the given ID from user cart
- *     description: Remove product with matching ID from signed in user's cart and returns the updated cart from database
+ *     description: Remove product with matching ID from signed in user's cart and returns the updated cart from database.
  *     parameters:
  *       - in: path
  *         name: productId
  *         required: true
- *         description: integer that matches a saved product's ID
+ *         description: integer that matches a saved product's ID.
  *         schema:
  *           type: integer
  *     responses:
@@ -314,12 +314,12 @@ router.delete('/:productId', deleteCartProducts);
  *                 type: string
  *                 description: The user's userName.
  *                 example: 3493 7003 8656 069
- *     description: Checkout the signed in user's cart and returns the new order from database
+ *     description: Checkout the signed in user's cart and returns the new order from database.
  *     parameters:
  *       - in: path
  *         name: cartId
  *         required: true
- *         description: integer that matches a user cart's ID
+ *         description: integer that matches a user cart's ID.
  *         schema:
  *           type: integer
  *     responses:

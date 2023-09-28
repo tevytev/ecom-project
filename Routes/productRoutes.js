@@ -49,10 +49,10 @@ router.use('/', adjustPriceRange);
  * /api/products/:
  *   get:
  *     summary: Retrieve all products
- *     description: Retrieve all products and their info from database
+ *     description: Retrieve all products and their info from database.
  *     responses:
  *       201:
- *         description: An array of objects representing each individual product in the database
+ *         description: An array of objects representing each individual product in the database.
  *         content:
  *           application/json:
  *             schema:
@@ -85,31 +85,29 @@ router.get('/', getAllProducts);
  *       - in: path
  *         name: productId
  *         required: true
- *         description: Integer that matches a saved product's ID
+ *         description: Integer that matches a saved product's ID.
  *         schema:
  *           type: integer
  *     responses:
  *       201:
- *         description: An object representing the product that matches the given ID
+ *         description: An object representing the product that matches the given ID.
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   name:
- *                     type: string
- *                     description: The product name.
- *                     example: Spider-man Graphic Tee
- *                   price:
- *                     type: integer
- *                     description: The product's price.
- *                     example: 10
- *                   category:
- *                     type: string
- *                     description: The product's category.
- *                     example: shirts
+ *               type: object
+ *               properties:
+ *                 name:
+ *                   type: string
+ *                   description: The product name.
+ *                   example: Spider-man Graphic Tee
+ *                 price:
+ *                   type: integer
+ *                   description: The product's price.
+ *                   example: 10
+ *                 category:
+ *                   type: string
+ *                   description: The product's category.
+ *                   example: shirts
  *                 
  */
 router.get('/:productId', getProductById);
