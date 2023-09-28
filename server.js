@@ -10,12 +10,47 @@ const cartRoutes = require('./Routes/cartRoutes');
 const orderRoutes = require('./Routes/orderRoutes');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+
+const swaggerDefinition = {
+  openapi: '3.0.0',
+  info: {
+    title: 'Express API for JSONPlaceholder',
+    version: '1.0.0',
+    description:
+      'This is a REST API e-commerce application made with Express. It retrieves data from a postgres database.',
+    license: {
+      name: 'Licensed Under MIT',
+      url: 'https://spdx.org/licenses/MIT.html',
+    },
+    contact: {
+      name: 'E-commerce Project',
+      url: 'https://jsonplaceholder.typicode.com',
+    },
+  },
+  servers: [
+    {
+      url: 'http://localhost:8080',
+      description: 'Development server',
+    },
+  ],
+};
+
+const options = {
+  swaggerDefinition,
+  // Paths to files containing OpenAPI definitions
+  apis: ['./routes/*.js'],
+};
+
+const swaggerSpec = swaggerJSDoc(options);
 
 // setting up port
 const PORT = 8080
 
 // assigning the variable app to express
 const app = express();
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // middleware
 app.use(bodyParser.json());
@@ -56,7 +91,7 @@ const Carts = db.carts;
     });
   })();
 
-// routes for the user API
+
 app.use('/api/users', userRoutes);
 
 // routes for the product API

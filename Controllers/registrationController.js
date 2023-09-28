@@ -13,6 +13,7 @@ const Cart = db.carts;
 const signup = async (req, res) => {
   try {
     const { userName, email, password } = req.body;
+
     const data = {
       userName,
       email,
@@ -41,7 +42,14 @@ const signup = async (req, res) => {
       console.log(token);
 
       // send users details
-      return res.status(201).send(user);
+      const createdUser = await User.findOne({
+        attributes: ['userName', 'email'],
+        where: {
+          email: email
+        }
+      });
+
+      return res.status(201).send(createdUser);
     } else {
       return res.status(409).send("Details are not correct");
     }
@@ -81,7 +89,10 @@ const login = async (req, res) => {
               console.log(token);
 
               // send user data
-              return res.status(201).send(user);
+              return res.status(201).json({
+                'userName': `${user.userName}`,
+                'email': `${user.email}`
+              });
           } else {
               return res.status(401).send("Authentication failed");
           }
