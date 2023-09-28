@@ -52,7 +52,7 @@ const router = express.Router();
  *             properties:
  *               userName:
  *                 type: string
- *                 description: The user's userName.
+ *                 description: The user's username.
  *                 example: Cookie123
  *               email:
  *                 type: string
@@ -148,11 +148,11 @@ router.post('/login', login);
  *               properties:
  *                 userName:
  *                   type: string
- *                   description: User's username.
+ *                   description: The user's username.
  *                   example: Cookie123
  *                 email:
  *                   type: string
- *                   description: User's email.
+ *                   description: The user's email.
  *                   example: Cookie@example.com
  */
 router.get('/:userId', userAuth.userAuthorization, getUserInfo);
@@ -172,7 +172,7 @@ router.get('/:userId', userAuth.userAuthorization, getUserInfo);
  *             properties:
  *               userName:
  *                 type: string
- *                 description: The user's userName.
+ *                 description: The user's username.
  *                 example: NewUserName
  *               email:
  *                 type: string
@@ -189,11 +189,11 @@ router.get('/:userId', userAuth.userAuthorization, getUserInfo);
  *               properties:
  *                 userName:
  *                   type: string
- *                   description: User's username.
+ *                   description: The user's username.
  *                   example: NewUserName
  *                 email:
  *                   type: string
- *                   description: User's email.
+ *                   description: The user's email.
  *                   example: NewEmail@example.com
  */
 router.put('/update', userAuth.userAuthorization, editUserInfo);

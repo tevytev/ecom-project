@@ -47,6 +47,7 @@ router.use('/', userAuth.userAuthorization);
  *         productId:
  *           type: integer
  *           description: the ID of the particular product in the given order.
+ *           example: 3
  */
 
 // get all user order history
@@ -69,7 +70,7 @@ router.use('/', userAuth.userAuthorization);
  *                   id:
  *                     type: integer
  *                     description: The order's ID.
- *                     example: 2
+ *                     example: 1
  *                   createdAt:
  *                     type: string
  *                     description: The order's creation date and time.
@@ -120,7 +121,7 @@ router.use('/', userAuth.userAuthorization);
  *                               example: 1
  *                             orderId:
  *                               type: integer
- *                               description: The cart's ID.
+ *                               description: The order's ID.
  *                               example: 1
  *                             productId:
  *                               type: integer
@@ -155,7 +156,7 @@ router.get('/', getAllOrders);
  *                 id:
  *                   type: integer
  *                   description: The order's ID.
- *                   example: 2
+ *                   example: 1
  *                 createdAt:
  *                   type: string
  *                   description: The order's creation date and time.
@@ -206,7 +207,7 @@ router.get('/', getAllOrders);
  *                             example: 1
  *                           orderId:
  *                             type: integer
- *                             description: The cart's ID.
+ *                             description: The order's ID.
  *                             example: 1
  *                           productId:
  *                             type: integer

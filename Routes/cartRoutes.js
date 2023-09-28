@@ -47,6 +47,7 @@ router.use('/', userAuth.userAuthorization, findUserCart)
  *         productId:
  *           type: integer
  *           description: the ID of the particular product in the given cart.
+ *           example: 4
  */
 
 // Get user cart
@@ -312,7 +313,7 @@ router.delete('/:productId', deleteCartProducts);
  *             properties:
  *               cardNumber:
  *                 type: string
- *                 description: The user's userName.
+ *                 description: The user's credit card number.
  *                 example: 3493 7003 8656 069
  *     description: Checkout the signed in user's cart and returns the new order from database.
  *     parameters:
@@ -375,16 +376,16 @@ router.delete('/:productId', deleteCartProducts);
  *                         type: string
  *                         description: The product's latest update date and time.
  *                         example: 2023-09-25T22:22:51.562Z
- *                       cart_products:
+ *                       order_products:
  *                         type: object
  *                         properties:
  *                           quantity:
  *                             type: integer
  *                             description: The product's quantity
  *                             example: 1
- *                           cartId:
+ *                           orderId:
  *                             type: integer
- *                             description: The cart's ID.
+ *                             description: The order's ID.
  *                             example: 1
  *                           productId:
  *                             type: integer
